@@ -1,0 +1,17 @@
+.main1{
+    background-color: orange;
+
+}
+
+.main2{
+    background-color: lightblue;
+    display: inline-block;
+    width: 50%;
+    height: 100px;
+    
+}
+
+.main3{
+    background-color: green;
+    display: inline;
+}

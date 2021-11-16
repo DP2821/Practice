@@ -34,28 +34,11 @@ $("#cmd").click(function(){
 
 
 
-        // //For mail
-
-        //     Email.send({
-        //       Host: "smtp.gmail.com",
-        //       Username: "dhruvilpatelsakariya@gmail.com",
-        //       Password: "282151992337791072",
-        //       To: 'ndpatel561@gmail.com',
-        //       From: "dhruvilpatelsakariya@gmail.com",
-        //       Subject: "Sending Email using javascript",
-        //       Body: "Well that was easy!!",
-        //     //   Attachments: [
-        //     //     {
-        //     //       name: "sample-doc.pdf",
-        //     //       path: doc
-        //     //     }]
-        //     })
-        //       .then(function (message) {
-        //         alert("Mail has been sent successfully")
-        //       });
-          
+       
         
+        var sender_mail = document.getElementById("email").value;
         window.location.href = "http://wa.me/+91" + number;
+        // window.location.href = "mailto:" + sender_mail;
     })();
 
 

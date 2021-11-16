@@ -13,9 +13,9 @@
   <div id="target">
     <!-- <img src="file:///S:/bridge.jpg" alt="Not"> -->
     <!-- <input type="file" id="screenshot" name="myfile"><br><br> -->
-    <input type="file" accept="image/*" name="image" id="screenshot" onchange="loadFile(event)"><br>
-    <br>
-    +91<input type="number" id="number" placeholder="Enter number">
+    <input type="email" id="email" placeholder="Enter e-mail"><br><br>
+    +91<input type="number" id="number" placeholder="Enter number"><br><br>
+    <input type="file" name="image" id="screenshot" onchange="loadFile(event)">
 
 
     <!-- <p></p>
@@ -26,14 +26,29 @@
   <button id="cmd">Click here</button>
 
 </body>
+<script>
+  const ss = document.getElementById("screenshot");
+  window.addEventListener('paste', e => {
+    ss.files = e.clipboardData.files;
+    var image = document.getElementById('output');
+    image.src = URL.createObjectURL(e.clipboardData.files[0]);
+    sessionStorage.setItem("url", URL.createObjectURL(e.clipboardData.files[0]));
 
+
+    
+    var sender_mail = document.getElementById("email").value;
+    window.location.href = "mailto:" + sender_mail;
+  });
+</script>
 <script>
   var loadFile = function (event) {
+
     var image = document.getElementById('output');
     image.src = URL.createObjectURL(event.target.files[0]);
     sessionStorage.setItem("url", URL.createObjectURL(event.target.files[0]));
 
-    window.location.href = "mailto:ndpatel561@gmail.com";
+    var sender_mail = document.getElementById("email").value;
+    window.location.href = "mailto:" + sender_mail;
 
   };
 </script>

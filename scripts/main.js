@@ -10,7 +10,9 @@ $("#cmd").click(function(){
 
     (async function() {
         
-        let blob = await fetch("./images/Screenshot (1).png").then(r => r.blob());
+        var url = sessionStorage.getItem("url");
+        
+        let blob = await fetch(url).then(r => r.blob());
 
         let dataUrl = await new Promise(resolve => {
           let reader = new FileReader();
@@ -18,17 +20,40 @@ $("#cmd").click(function(){
           reader.readAsDataURL(blob);
         });
         // now do something with `dataUrl`
-        alert(dataUrl)
+
         var doc = new jsPDF();
     
         doc.setFontSize(40)
-        doc.addImage(dataUrl,'png',10,10,177,100)
+        doc.addImage(dataUrl,'png',10,10,190,107)
         doc.fromHTML($("#target").html(),15,15,{
             "elementHandlers":specialElementHandlers
         });
     
         doc.save("sample-file.pdf");
         var number = document.getElementById("number").value;
+
+
+
+        // //For mail
+
+        //     Email.send({
+        //       Host: "smtp.gmail.com",
+        //       Username: "dhruvilpatelsakariya@gmail.com",
+        //       Password: "282151992337791072",
+        //       To: 'ndpatel561@gmail.com',
+        //       From: "dhruvilpatelsakariya@gmail.com",
+        //       Subject: "Sending Email using javascript",
+        //       Body: "Well that was easy!!",
+        //     //   Attachments: [
+        //     //     {
+        //     //       name: "sample-doc.pdf",
+        //     //       path: doc
+        //     //     }]
+        //     })
+        //       .then(function (message) {
+        //         alert("Mail has been sent successfully")
+        //       });
+          
         
         window.location.href = "http://wa.me/+91" + number;
     })();

@@ -6,25 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
 
-  <div id="target">
-    <!-- <img src="file:///S:/bridge.jpg" alt="Not"> -->
-    <!-- <input type="file" id="screenshot" name="myfile"><br><br> -->
-    <input type="email" id="email" placeholder="Enter e-mail"><br><br>
-    +91<input type="number" id="number" placeholder="Enter number"><br><br>
-    <input type="file" name="image" id="screenshot" onchange="loadFile(event)">
+  <div class="main">
+    <div id="target">
+      <!-- <img src="file:///S:/bridge.jpg" alt="Not"> -->
+      <!-- <input type="file" id="screenshot" name="myfile"><br><br> -->
+      <input type="email" id="email" placeholder="Enter e-mail"><br><br>
+      <input type="number" id="number" placeholder="Enter number"><br><br>
+      <label class="input-button" for="screenshot">Choose file</label>
+      <input id="screenshot" type="file" name="image" onchange="loadFile(event)">
 
 
-    <!-- <p></p>
+
+      <!-- <p></p>
     <p><label for="file" style="cursor: pointer;">Upload Image</label></p> -->
-    <p><img id="output" width="600" /></p>
+      <p><img id="output" width="500" /></p>
+    </div>
+
+    <button id="cmd">Click here</button>
   </div>
-
-  <button id="cmd">Click here</button>
-
+  <div class="loader" id="loading"></div>
 </body>
 <script>
   const ss = document.getElementById("screenshot");
@@ -35,9 +40,10 @@
     sessionStorage.setItem("url", URL.createObjectURL(e.clipboardData.files[0]));
 
 
-    
+
     var sender_mail = document.getElementById("email").value;
-    window.location.href = "mailto:" + sender_mail;
+    window.location.href = "mailto:" + sender_mail + "?subject=Reservation&body=Your ticket";
+    // window.location.href = "mailto:" + sender_mail;
   });
 </script>
 <script>
@@ -48,7 +54,8 @@
     sessionStorage.setItem("url", URL.createObjectURL(event.target.files[0]));
 
     var sender_mail = document.getElementById("email").value;
-    window.location.href = "mailto:" + sender_mail;
+    window.location.href = "mailto:" + sender_mail + "?subject=Reservation&body=Your ticket";
+    // window.location.href = "mailto:" + sender_mail;
 
   };
 </script>

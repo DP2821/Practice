@@ -32,7 +32,8 @@ $(document).ready(function () {
       var number = document.getElementById("number").value;
 
       var sender_mail = document.getElementById("email").value;
-      window.location.href = "http://wa.me/+91" + number;
+      // window.location.href = "http://wa.me/+91" + number;
+      window.location.href = "https://api.whatsapp.com/send/?phone=%2B91" + number + "&text&app_absent=0";
       // window.location.href = "mailto:" + sender_mail;
     })();
   });
